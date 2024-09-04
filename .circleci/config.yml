@@ -5,8 +5,8 @@ jobs:
     docker:
       - image: circleci/openjdk:stretch
         auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
+          username:  charafhanafi
+          password:  Tawakalto3alaLah
     steps:
       - checkout
       - run: ./mvnw -Dmaven.test.skip=true clean package
@@ -19,7 +19,9 @@ jobs:
 
       # build and push Docker image
       - run: |
-          TAG=3.0
+          TAG=5.0
+          DOCKERHUB_USERNAME=charafhanafi
+          DOCKERHUB_PASSWORD=Tawakalto3alaLah
           docker build -t $DOCKERHUB_USERNAME/gitops-foundations:$TAG --build-arg JAR_FILE=*.jar .
           echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
           docker push $DOCKERHUB_USERNAME/gitops-foundations:$TAG
