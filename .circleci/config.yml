@@ -19,7 +19,7 @@ jobs:
 
       # build and push Docker image
       - run: |
-          TAG=5.0
+          TAG=12.0
           DOCKERHUB_USERNAME=charafhanafi
           DOCKERHUB_PASSWORD=Tawakalto3alaLah
           docker build -t $DOCKERHUB_USERNAME/gitops-foundations:$TAG --build-arg JAR_FILE=*.jar .
